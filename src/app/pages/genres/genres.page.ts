@@ -21,4 +21,8 @@ export class GenresPage implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  onGenrePick(genre: string) {
+    console.log(genre);
+  }
 }

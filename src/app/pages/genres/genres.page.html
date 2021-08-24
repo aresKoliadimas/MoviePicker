@@ -22,9 +22,9 @@
           </ion-card-header>
           <ion-card-content>
             <ion-item
-              buttton
               *ngFor="let genre of genres"
               [routerLink]="['/', 'genres', genre]"
+              (click)="onGenrePick(genre)"
             >
               <ion-label>{{genre}}</ion-label>
             </ion-item>
