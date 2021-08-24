@@ -9,20 +9,34 @@ const routes: Routes = [
   },
   {
     path: 'genres',
-    loadChildren: () =>
-      import('./pages/genres/genres.module').then((m) => m.GenresPageModule),
-  },
-  {
-    path: 'genres/:genreName',
-    loadChildren: () =>
-      import('./pages/movies/movies.module').then((m) => m.MoviesPageModule),
-  },
-  {
-    path: 'genres/:genreName/:movieId',
-    loadChildren: () =>
-      import('./pages/movie-details/movie-details.module').then(
-        (m) => m.MovieDetailsPageModule
-      ),
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./pages/genres/genres.module').then(
+            (m) => m.GenresPageModule
+          ),
+      },
+      {
+        path: ':genreName',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('./pages/movies/movies.module').then(
+                (m) => m.MoviesPageModule
+              ),
+          },
+          {
+            path: ':movieId',
+            loadChildren: () =>
+              import('./pages/movie-details/movie-details.module').then(
+                (m) => m.MovieDetailsPageModule
+              ),
+          },
+        ],
+      },
+    ],
   },
 ];
 
