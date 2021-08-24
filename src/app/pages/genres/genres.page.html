@@ -1,9 +1,36 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>genres</ion-title>
+    <ion-icon
+      name="film-outline"
+      slot="start"
+      size="large"
+      color="warning"
+    ></ion-icon>
+    <ion-title color="warning" class="ion-text-center"
+      ><h1>Movie Picker</h1></ion-title
+    >
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header>
+            <h3>Pick a genre to start</h3>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item
+              buttton
+              *ngFor="let genre of genres"
+              [routerLink]="['/', 'genres', genre]"
+            >
+              <ion-label>{{genre}}</ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

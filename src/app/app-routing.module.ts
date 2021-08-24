@@ -13,12 +13,12 @@ const routes: Routes = [
       import('./pages/genres/genres.module').then((m) => m.GenresPageModule),
   },
   {
-    path: 'movies',
+    path: 'genres/:genreName',
     loadChildren: () =>
       import('./pages/movies/movies.module').then((m) => m.MoviesPageModule),
   },
   {
-    path: 'movies/:id',
+    path: 'genres/:genreName/:movieId',
     loadChildren: () =>
       import('./pages/movie-details/movie-details.module').then(
         (m) => m.MovieDetailsPageModule

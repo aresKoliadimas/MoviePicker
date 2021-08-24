@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./genres.page.scss'],
 })
 export class GenresPage implements OnInit {
+  genres = [
+    'Action',
+    'Adventure',
+    'Animation',
+    'Comedy',
+    'Drama',
+    'Historical',
+    'Horror',
+    'Science fiction',
+    'Western',
+  ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
