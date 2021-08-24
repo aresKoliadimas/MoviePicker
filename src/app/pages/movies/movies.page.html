@@ -4,9 +4,32 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title color="warning" class="ion-text-center"
-      ><h1>Movies</h1></ion-title
+      ><h1>{{genre}} movies</h1></ion-title
     >
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header>
+            <h3>Pick a movie to see details</h3>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item
+              *ngFor="let movie of movies"
+              [routerLink]="['/', 'genres', genre, movie.id]"
+            >
+            <ion-avatar slot='start'>
+              <img [src]="movie.imgUrl">
+            </ion-avatar>
+              <ion-label>{{movie.name}}</ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

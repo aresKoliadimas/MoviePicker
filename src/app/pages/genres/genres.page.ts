@@ -13,8 +13,4 @@ export class GenresPage implements OnInit {
   ngOnInit() {
     this.genres = this.movieService.getGenres();
   }
-
-  onGenrePick(genre: string) {
-    console.log(genre);
-  }
 }
