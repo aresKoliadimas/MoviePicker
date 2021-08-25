@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from 'src/app/movie.service';
 
 @Component({
@@ -13,14 +13,14 @@ export class MoviesPage implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private movieService: MovieService
+    private movieService: MovieService,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((paramMap) => {
       this.genre = paramMap.get('genreName');
     });
-
     this.movies = this.movieService.getMovies();
   }
 }
