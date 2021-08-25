@@ -1,9 +1,64 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>movie-details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="genres"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="warning" class="ion-text-center"
+      ><h2>{{ loadedMovie.name }}</h2></ion-title
+    >
   </ion-toolbar>
 </ion-header>
-
+<br />
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" size-md="4" offset-md="2">
+        <img [src]="loadedMovie.imgUrl" />
+      </ion-col>
+      <ion-col size-md="4">
+        <p>
+          <ion-text color="warning">Release date:</ion-text>
+          {{loadedMovie.date}}
+        </p>
+        <p>
+          <ion-text color="warning">Runtime:</ion-text> {{loadedMovie.runtime}}
+        </p>
+        <p>
+          <ion-icon name="star-half-outline" color="warning"></ion-icon>
+          {{loadedMovie.rating}}
+        </p>
+        <p>{{loadedMovie.description}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" size-md="4" offset-md="2">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title
+              ><ion-text color="warning">Crew</ion-text></ion-card-title
+            >
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list *ngFor="let i of dum">
+              <p>Director</p>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" size-md="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title
+              ><ion-text color="warning">Cast</ion-text></ion-card-title
+            >
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list *ngFor="let i of dum">
+              <p>Actor</p>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

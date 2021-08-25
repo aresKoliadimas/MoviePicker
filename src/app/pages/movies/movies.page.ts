@@ -19,7 +19,6 @@ export class MoviesPage implements OnInit {
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((paramMap) => {
       this.genre = paramMap.get('genreName');
-      console.log(this.genre);
     });
 
     this.movies = this.movieService.getMovies();

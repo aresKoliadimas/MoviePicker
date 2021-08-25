@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref='genres'></ion-back-button>
     </ion-buttons>
     <ion-title color="warning" class="ion-text-center"
       ><h1>{{genre}} movies</h1></ion-title
@@ -22,9 +22,9 @@
               *ngFor="let movie of movies"
               [routerLink]="['/', 'genres', genre, movie.id]"
             >
-            <ion-avatar slot='start'>
-              <img [src]="movie.imgUrl">
-            </ion-avatar>
+              <ion-avatar slot="start">
+                <img [src]="movie.imgUrl" />
+              </ion-avatar>
               <ion-label>{{movie.name}}</ion-label>
             </ion-item>
           </ion-card-content>
